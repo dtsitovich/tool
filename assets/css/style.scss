@@ -5,12 +5,118 @@
     src: url('../fonts/Roboto.ttf')
 }
 
+$regular: normal 400 16px/26px Roboto;
+$medium: normal 300 36px/46px Roboto;
+$large: normal 300 64px/74px Roboto;
+
+// COLORS
+
+$black: #000;
+$blue1: #1F3F68;
+$blue2: #5A98D0;
+$white: #FFF;
+
+// COMMON STYLES
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-body {
-    font: normal 400 16px/normal Roboto;
+// MIXINS
+
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+// HOME PAGE
+
+.wrapper {
+    @include flexbox();
+    min-height: 100vh;
+    flex-direction: column;
+}
+.header,
+.footer {
+    flex-shrink: 0;
+}
+.main {
+    flex-grow: 1;
+}
+.container {
+    @include flexbox();
+    flex-direction: column;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+// HEADER
+
+.header {
+    background: linear-gradient(0deg, #EBF3FB 8.84%, rgba(152, 195, 232, 0.00) 31.12%);;
+    height: 768px;
+}
+.header {
+   nav {
+    width: 100%;
+   }
+   .menu {
+    @include flexbox();
+    padding-top: 39px;
+    margin-bottom: 76.84px;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    a {
+        display: block;
+        text-decoration: none;
+        }
+    li:nth-child(1) a {
+        width: 45.58px;
+        height: 48px;
+        background: url('../images/svg/logo.svg');
+        }
+    li:nth-child(2) a {
+        width: 33.46px;
+        height: 38px;
+        background: url('../images/icons/contact.svg');
+        }
+    }
+}
+.header {
+    .hero {
+        height: 481.39px;
+        background: url('../images/svg/illustration.svg') top right no-repeat;
+      h1 {
+        padding: 30.16px 0 32px 0;
+        margin: 0;
+        color: $blue1;
+        font: $large;
+        letter-spacing: 2.56px;
+        }
+       p {
+        width: 425px;
+        margin-bottom: 71px;
+        color: $blue1;
+        font: $regular;
+        letter-spacing: 0.8px;
+        opacity: 0.6;
+        }
+       a {
+        background: $blue2;
+        padding: 15px 50px;
+        color: $white;
+        font: $regular;
+        letter-spacing: 0.64px;
+        text-decoration: none;
+        box-shadow: 5px 10px 20px 0px rgba(53, 110, 173, 0.20);
+        border-radius: 10px;
+        }
+    }
 }
