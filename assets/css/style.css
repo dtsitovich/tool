@@ -233,4 +233,103 @@ body {
 }
 .projects .project-item.item-3 {
   background: url("../images/car-rapetition-app.jpg") no-repeat;
+}
+
+.footer {
+  background: #316099;
+  height: 657px;
+}
+
+.footer-top,
+.footer-bottom {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.footer-top {
+  padding: 94px 0;
+  justify-content: space-between;
+}
+.footer-top div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 50%;
+}
+.footer-top div p,
+.footer-top div button {
+  color: #fff;
+  font: 400 16px/162% "Roboto";
+}
+.footer-top div:nth-of-type(1) {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.footer-top div:nth-of-type(1) h3 {
+  margin-bottom: 32px;
+  color: #fff;
+  font: 400 36px/128% "Roboto";
+  letter-spacing: 0.05em;
+}
+.footer-top div:nth-of-type(1) p {
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+.footer-top div:nth-of-type(2) {
+  justify-content: flex-end;
+  align-items: center;
+}
+.footer-top div:nth-of-type(2) button {
+  width: 236px;
+  height: 56px;
+  letter-spacing: 0.04em;
+  background: #5a98d0;
+  border: none;
+  cursor: pointer;
+}
+.footer-top div:nth-of-type(2) button:hover {
+  background: #88b1d5;
+}
+
+.footer-bottom {
+  margin: 64px 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-start;
+  gap: 32px;
+}
+.footer-bottom li {
+  width: 33.3%;
+  padding-left: 18px;
+  margin-left: 18px;
+}
+.footer-bottom a {
+  text-decoration: none;
+}
+.footer-bottom a:hover {
+  color: #5a98d0;
+}
+.footer-bottom li,
+.footer-bottom a {
+  color: #fff;
+  font: 400 16px/162% "Roboto";
+  letter-spacing: 0.05em;
+}
+
+.copyright {
+  margin-bottom: 64px;
+}
+.copyright p {
+  color: #fff;
+  font: 400 16px/162% "Roboto";
+  letter-spacing: 0.05em;
+  opacity: 0.4;
 }/*# sourceMappingURL=style.css.map */
