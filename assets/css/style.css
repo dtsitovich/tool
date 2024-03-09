@@ -9,6 +9,10 @@
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .wrapper {
   display: -webkit-box;
   display: -moz-box;
@@ -41,7 +45,7 @@
 }
 
 .header {
-  background: linear-gradient(0deg, #EBF3FB 8.84%, rgba(152, 195, 232, 0) 31.12%);
+  background: linear-gradient(0deg, #ebf3fb 8.84%, rgba(152, 195, 232, 0) 31.12%);
   height: 768px;
 }
 
@@ -54,8 +58,7 @@
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  padding-top: 39px;
-  margin-bottom: 76.84px;
+  padding: 36px 0;
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
@@ -77,27 +80,28 @@
 
 .header .hero {
   height: 481.39px;
+  margin-top: 70px;
   background: url("../images/svg/illustration.svg") top right no-repeat;
 }
 .header .hero h1 {
   padding: 30.16px 0 32px 0;
   margin: 0;
-  color: #1F3F68;
+  color: #1f3f68;
   font: normal 300 64px/74px Roboto;
   letter-spacing: 2.56px;
 }
 .header .hero p {
   width: 425px;
   margin-bottom: 71px;
-  color: #1F3F68;
+  color: #1f3f68;
   font: normal 400 16px/26px Roboto;
   letter-spacing: 0.8px;
   opacity: 0.6;
 }
 .header .hero a {
-  background: #5A98D0;
+  background: #5a98d0;
   padding: 15px 50px;
-  color: #FFF;
+  color: #fff;
   font: normal 400 16px/26px Roboto;
   letter-spacing: 0.64px;
   text-decoration: none;
@@ -132,13 +136,13 @@
   box-shadow: 5px 20px 50px 0px rgba(16, 112, 177, 0.2);
 }
 .services .card-item h4 {
-  color: #1F3F68;
+  color: #1f3f68;
   font: normal 400 18px/30px Roboto;
   letter-spacing: 1px;
 }
 .services .card-item p {
   padding: 14px 0 28px 0;
-  color: #1F3F68;
+  color: #1f3f68;
   font: normal 400 16px/26px Roboto;
   letter-spacing: 0.8px;
   opacity: 0.6;
@@ -147,7 +151,7 @@
   align-self: end;
 }
 .services .card-item span a {
-  color: #5A98D0;
+  color: #5a98d0;
   font: normal 400 14px/30px Roboto;
   align-self: end;
   text-decoration: none;
@@ -177,4 +181,56 @@
 }
 .services .icon-3 {
   background: url("../images/png/digital.png") center center no-repeat;
+}
+
+.projects h3 {
+  color: #000;
+  font: normal 300 36px/46px Roboto;
+  text-align: center;
+  letter-spacing: 1.8px;
+}
+.projects p {
+  padding: 32px 0;
+  color: #222;
+  font: normal 400 16px/26px Roboto;
+  text-align: center;
+  letter-spacing: 0.8px;
+}
+.projects .project-box {
+  margin-top: 32px;
+  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 510px);
+  grid-template-rows: 437px 417px;
+  gap: 20px;
+}
+.projects .project-item span {
+  color: #fff;
+  display: block;
+}
+.projects .project-item.item-1 {
+  grid-column: span 2;
+  grid-row: 1/2;
+  background: url("../images/smart-home.jpg") no-repeat;
+  background-size: contain;
+}
+.projects .project-item.item-1 span {
+  margin: 64px;
+  font: 400 32px/144% Roboto;
+  text-align: right;
+  letter-spacing: 0.05em;
+}
+.projects .project-item.item-2, .projects .project-item.item-3 {
+  padding: 32px;
+  grid-column: span 1;
+  color: #fff;
+  font: 400 28px/164% Roboto;
+  letter-spacing: 0.05em;
+  background-size: contain;
+}
+.projects .project-item.item-2 {
+  background: url("../images/sparklite-app.jpg") no-repeat;
+}
+.projects .project-item.item-3 {
+  background: url("../images/car-rapetition-app.jpg") no-repeat;
 }/*# sourceMappingURL=style.css.map */
