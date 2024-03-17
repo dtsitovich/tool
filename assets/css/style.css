@@ -1,3 +1,36 @@
+#contact .header {
+  height: auto;
+  background: none;
+}
+
+.header-bottom {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding: 50px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/png/background.png);
+}
+.header-bottom h1 {
+  margin: 0;
+  color: #fff;
+  font: 500 44px/168% "Roboto";
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+.header-bottom p {
+  padding-top: 16px;
+  color: #fff;
+  font: 400 20px/150% "Roboto";
+  letter-spacing: 0.04em;
+  text-align: center;
+  opacity: 0.6;
+}
+
 @font-face {
   font-family: Roboto;
   src: url("../fonts/Roboto.ttf");
@@ -11,6 +44,10 @@
 
 body {
   font-family: "Roboto", sans-serif;
+}
+
+.hidden {
+  display: none;
 }
 
 .wrapper {

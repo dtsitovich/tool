@@ -1,0 +1,31 @@
+// CONTACT PAGE
+
+#contact {
+  .header {
+    height: auto;
+    background: none;
+  }
+}
+.header-bottom {
+  @include flexbox();
+  padding: 50px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/png/background.png);
+  h1 {
+    margin: 0;
+    color: #fff;
+    font: 500 44px/168% "Roboto";
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  p {
+    padding-top: 16px;
+    color: #fff;
+    font: 400 20px/150% "Roboto";
+    letter-spacing: 0.04em;
+    text-align: center;
+    opacity: 0.6;
+  }
+}
