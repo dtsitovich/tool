@@ -1,0 +1,214 @@
+// MIXINS
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+// CONTACT PAGE
+
+#contact {
+  .header {
+    height: auto;
+    background: none;
+  }
+}
+.header-bottom {
+  @include flexbox();
+  padding: 50px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/png/background.png);
+  background-size: cover;
+  h1 {
+    margin: 0;
+    color: #fff;
+    font: 500 44px/168% "Roboto";
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  p {
+    padding-top: 16px;
+    color: #fff;
+    font: 400 20px/150% "Roboto";
+    letter-spacing: 0.04em;
+    text-align: center;
+    opacity: 0.6;
+  }
+}
+.content {
+  margin: 56px 0;
+  @include flexbox();
+  justify-content: space-around;
+  div {
+    @include flexbox();
+    flex-direction: column;
+    &:first-of-type {
+      justify-content: center;
+      align-items: flex-start;
+      img {
+        margin-bottom: 56px;
+      }
+      div {
+        margin-bottom: 40px;
+        h4 {
+          margin-bottom: 24px;
+          color: rgb(31, 63, 104);
+          font: 500 20px/150% "Roboto";
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+      }
+    }
+    &:last-of-type {
+      padding: 56px;
+      box-sizing: border-box;
+      border-radius: 7px;
+      box-shadow: 5px 10px 50px 0 #1070b133;
+      background: #fff;
+      h3 {
+        margin-bottom: 42px;
+        font: 500 20px/150% "Roboto";
+        letter-spacing: 0.04em;
+        color: #1f3f68;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.address {
+  p {
+    font: 300 16px/162% "Roboto";
+    letter-spacing: 0.04em;
+    color: #1f3f68;
+    opacity: 0.6;
+  }
+}
+.phone {
+  span {
+    @include flexbox();
+    color: #1f3f68;
+    font: 300 16px/162% "Roboto";
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+  }
+  span::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/icons/phone.svg) no-repeat center center;
+    margin-right: 16px;
+  }
+  span:first-of-type {
+    margin-top: 0;
+  }
+  span {
+    margin-top: 16px;
+    font: 300 16px/162% "Roboto";
+    letter-spacing: 0.04em;
+    color: #1f3f68;
+  }
+}
+.online-service {
+  @include flexbox();
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+  & span {
+    display: inline-flex;
+    margin-bottom: 8px;
+    opacity: 0.6;
+  }
+  & span:first-of-type::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/icons/language.svg) no-repeat center center;
+    margin-right: 16px;
+  }
+  & span:last-of-type::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../images/icons/email.svg) no-repeat center center;
+    margin-right: 16px;
+  }
+}
+#message {
+  width: 320px;
+  div {
+    align-items: flex-start;
+    & label {
+      font: 400 16px/187% "Roboto";
+      letter-spacing: 0.04em;
+      color: #1f3f68;
+    }
+    &:last-of-type {
+      padding: 0;
+      margin-top: 40px;
+      input[type="submit"] {
+        padding: 16px 132px;
+        @include flexbox();
+        align-items: flex-end;
+        color: #fff;
+        background: none;
+        font: 500 16px/162% "Roboto";
+        letter-spacing: 0.04em;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 5px 20px 50px 0 rgba(16, 112, 177, 0.2);
+        background: #5a98d0;
+        &:hover {
+          cursor: pointer;
+          opacity: 0.77;
+        }
+      }
+    }
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 18px 36px;
+    margin-bottom: 32px;
+    font-size: 16px;
+    border: 1px solid #356ead;
+    border-radius: 10px;
+    opacity: 0.4;
+    background: #fff;
+    &:focus {
+      outline: none;
+      border: 1px solid #4a90e2;
+    }
+    &::placeholder {
+      color: #1f3f68;
+      font: 300 16px/187% "Roboto";
+      letter-spacing: 0.04em;
+    }
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    font: 16px / normal "Roboto";
+    resize: none;
+    border: 1px solid #356ead;
+    border-radius: 5px;
+    &::placeholder {
+      font: 300 16px / normal "Roboto";
+    }
+  }
+}
+.map {
+  margin-top: 18px;
+  margin-bottom: 112px;
+  @include flexbox();
+  justify-content: center;
+}
