@@ -14,6 +14,7 @@
   justify-content: center;
   align-items: center;
   background-image: url(../images/png/background.png);
+  background-size: cover;
 }
 .header-bottom h1 {
   margin: 0;
@@ -29,6 +30,197 @@
   letter-spacing: 0.04em;
   text-align: center;
   opacity: 0.6;
+}
+
+.content {
+  margin: 56px 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+}
+.content div {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+.content div:first-of-type {
+  justify-content: center;
+  align-items: flex-start;
+}
+.content div:first-of-type img {
+  margin-bottom: 56px;
+}
+.content div:first-of-type div {
+  margin-bottom: 40px;
+}
+.content div:first-of-type div h4 {
+  margin-bottom: 24px;
+  color: rgb(31, 63, 104);
+  font: 500 20px/150% "Roboto";
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.content div:last-of-type {
+  padding: 56px;
+  box-sizing: border-box;
+  border-radius: 7px;
+  box-shadow: 5px 10px 50px 0 rgba(16, 112, 177, 0.2);
+  background: #fff;
+}
+.content div:last-of-type h3 {
+  margin-bottom: 42px;
+  font: 500 20px/150% "Roboto";
+  letter-spacing: 0.04em;
+  color: #1f3f68;
+  text-transform: uppercase;
+}
+
+.address p {
+  font: 300 16px/162% "Roboto";
+  letter-spacing: 0.04em;
+  color: #1f3f68;
+  opacity: 0.6;
+}
+
+.phone span {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  color: #1f3f68;
+  font: 300 16px/162% "Roboto";
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+}
+.phone span::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url(../images/icons/phone.svg) no-repeat center center;
+  margin-right: 16px;
+}
+.phone span:first-of-type {
+  margin-top: 0;
+}
+.phone span {
+  margin-top: 16px;
+  font: 300 16px/162% "Roboto";
+  letter-spacing: 0.04em;
+  color: #1f3f68;
+}
+
+.online-service {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+}
+.online-service span {
+  display: inline-flex;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+.online-service span:first-of-type::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url(../images/icons/language.svg) no-repeat center center;
+  margin-right: 16px;
+}
+.online-service span:last-of-type::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url(../images/icons/email.svg) no-repeat center center;
+  margin-right: 16px;
+}
+
+#message {
+  width: 320px;
+}
+#message div {
+  align-items: flex-start;
+}
+#message div label {
+  font: 400 16px/187% "Roboto";
+  letter-spacing: 0.04em;
+  color: #1f3f68;
+}
+#message div:last-of-type {
+  padding: 0;
+  margin-top: 40px;
+}
+#message div:last-of-type input[type=submit] {
+  padding: 16px 132px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  background: none;
+  font: 500 16px/162% "Roboto";
+  letter-spacing: 0.04em;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px 0 rgba(16, 112, 177, 0.2);
+  background: #5a98d0;
+}
+#message div:last-of-type input[type=submit]:hover {
+  cursor: pointer;
+  opacity: 0.77;
+}
+#message input[type=text],
+#message input[type=email],
+#message textarea {
+  width: 100%;
+  padding: 18px 36px;
+  margin-bottom: 32px;
+  font-size: 16px;
+  border: 1px solid #356ead;
+  border-radius: 10px;
+  opacity: 0.4;
+  background: #fff;
+}
+#message input[type=text]:focus,
+#message input[type=email]:focus,
+#message textarea:focus {
+  outline: none;
+  border: 1px solid #4a90e2;
+}
+#message input[type=text]::placeholder,
+#message input[type=email]::placeholder,
+#message textarea::placeholder {
+  color: #1f3f68;
+  font: 300 16px/187% "Roboto";
+  letter-spacing: 0.04em;
+}
+#message textarea {
+  width: 100%;
+  height: 100px;
+  font: 16px/normal "Roboto";
+  resize: none;
+  border: 1px solid #356ead;
+  border-radius: 5px;
+}
+#message textarea::placeholder {
+  font: 300 16px/normal "Roboto";
 }
 
 @font-face {
