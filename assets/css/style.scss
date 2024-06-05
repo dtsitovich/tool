@@ -234,7 +234,7 @@ body {
     margin-bottom: 80px;
     display: grid;
     grid-template-columns: repeat(2, 510px);
-    grid-template-rows: 437px 417px;
+    grid-template-rows: 437px 384px;
     gap: 20px;
   }
   .project-item {
@@ -246,7 +246,7 @@ body {
       grid-column: span 2;
       grid-row: 1/2;
       background: url("../images/smart-home.jpg") no-repeat;
-      background-size: contain;
+      background-size: cover;
       span {
         margin: 64px;
         font: 400 32px/144% Roboto;
@@ -261,13 +261,14 @@ body {
       color: $white;
       font: 400 28px/164% Roboto;
       letter-spacing: 0.05em;
-      background-size: contain;
     }
     &.item-2 {
       background: url("../images/sparklite-app.jpg") no-repeat;
+      background-size: cover;
     }
     &.item-3 {
       background: url("../images/car-rapetition-app.jpg") no-repeat;
+      background-size: cover;
     }
   }
 }
@@ -276,7 +277,6 @@ body {
 
 .footer {
   background: #316099;
-  height: 657px;
 }
 .footer-top,
 .footer-bottom {
@@ -356,3 +356,7 @@ body {
     opacity: 0.4;
   }
 }
+
+// MEDIA QUERIES
+
+@import "responsive";
