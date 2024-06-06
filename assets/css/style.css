@@ -489,11 +489,15 @@
 }
 @media screen and (max-width: 576px) {
   .header .menu li:nth-child(1) a,
-  .header .menu li:nth-child(2) a {
+  .header .menu li:nth-child(2) a:first-child {
     width: 64px;
     height: 64px;
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  .header .menu li:nth-child(2) a:last-child {
+    width: 48px;
+    height: 54px;
   }
   .header .hero {
     margin-top: 18px;
@@ -509,7 +513,14 @@
     text-align: center;
   }
   .header .hero p {
+    padding: 0 16px;
     text-align: center;
+  }
+  .services {
+    margin-bottom: 72px;
+  }
+  .projects h3 {
+    padding: 0 16px;
   }
   .projects p {
     padding: 48px 24px;
@@ -537,17 +548,21 @@
     width: auto;
     align-items: center;
   }
+  .footer .footer-top div:nth-of-type(1) {
+    padding: 0;
+  }
   .footer .footer-top div:nth-of-type(1) h3 {
+    padding: 0;
     margin-bottom: 0;
-  }
-  .footer .footer-top h3,
-  .footer .footer-top p {
-    padding: 24px;
-    text-align: center;
-  }
-  .footer .footer-top h3 {
     font: normal 300 36px/128% Roboto;
     letter-spacing: 0.05em;
+  }
+  .footer .footer-top div:nth-of-type(1) p {
+    padding: 32px 0;
+  }
+  .footer .footer-top div:nth-of-type(1) h3,
+  .footer .footer-top div:nth-of-type(1) p {
+    text-align: center;
   }
   .footer .footer-bottom {
     padding-left: 0;
@@ -557,6 +572,7 @@
     width: 375px;
   }
   .footer .copyright p {
+    padding-left: 0;
     text-align: center;
   }
 }
@@ -697,6 +713,7 @@
   .content div:last-of-type #message div:nth-of-type(3) {
     grid-column: span 4;
   }
+  .content div:last-of-type #message div:nth-of-type(1),
   .content div:last-of-type #message input {
     margin-bottom: 0;
   }
@@ -721,6 +738,19 @@ body {
 
 .hidden {
   display: none;
+}
+
+#theme-toggle {
+  cursor: pointer;
+  transition: transform 0.5s ease; /* Rotation animation */
+}
+
+body {
+  transition: filter 0.5s ease; /* Filter animation */
+}
+
+.black-and-white {
+  filter: grayscale(100%);
 }
 
 .wrapper {
@@ -777,15 +807,27 @@ body {
   display: block;
   text-decoration: none;
 }
+.header .menu li:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .header .menu li:nth-child(1) a {
   width: 45.58px;
   height: 48px;
   background: url("../images/svg/logo.svg");
 }
-.header .menu li:nth-child(2) a {
-  width: 33.46px;
-  height: 38px;
-  background: url("../images/icons/contact.svg");
+.header .menu li:nth-child(2) a:first-child {
+  width: 46px;
+  height: 48px;
+  background: url("../images/icons/home-icon.svg");
+  background-size: contain;
+}
+.header .menu li:nth-child(2) a:last-child {
+  width: 32px;
+  height: 48px;
+  background: url(../images/icons/contact.svg) center no-repeat;
+  background-size: contain;
 }
 
 .header .hero {
@@ -1299,11 +1341,15 @@ body {
 }
 @media screen and (max-width: 576px) {
   .header .menu li:nth-child(1) a,
-  .header .menu li:nth-child(2) a {
+  .header .menu li:nth-child(2) a:first-child {
     width: 64px;
     height: 64px;
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  .header .menu li:nth-child(2) a:last-child {
+    width: 48px;
+    height: 54px;
   }
   .header .hero {
     margin-top: 18px;
@@ -1319,7 +1365,14 @@ body {
     text-align: center;
   }
   .header .hero p {
+    padding: 0 16px;
     text-align: center;
+  }
+  .services {
+    margin-bottom: 72px;
+  }
+  .projects h3 {
+    padding: 0 16px;
   }
   .projects p {
     padding: 48px 24px;
@@ -1347,17 +1400,21 @@ body {
     width: auto;
     align-items: center;
   }
+  .footer .footer-top div:nth-of-type(1) {
+    padding: 0;
+  }
   .footer .footer-top div:nth-of-type(1) h3 {
+    padding: 0;
     margin-bottom: 0;
-  }
-  .footer .footer-top h3,
-  .footer .footer-top p {
-    padding: 24px;
-    text-align: center;
-  }
-  .footer .footer-top h3 {
     font: normal 300 36px/128% Roboto;
     letter-spacing: 0.05em;
+  }
+  .footer .footer-top div:nth-of-type(1) p {
+    padding: 32px 0;
+  }
+  .footer .footer-top div:nth-of-type(1) h3,
+  .footer .footer-top div:nth-of-type(1) p {
+    text-align: center;
   }
   .footer .footer-bottom {
     padding-left: 0;
@@ -1367,6 +1424,7 @@ body {
     width: 375px;
   }
   .footer .copyright p {
+    padding-left: 0;
     text-align: center;
   }
 }
@@ -1507,6 +1565,7 @@ body {
   .content div:last-of-type #message div:nth-of-type(3) {
     grid-column: span 4;
   }
+  .content div:last-of-type #message div:nth-of-type(1),
   .content div:last-of-type #message input {
     margin-bottom: 0;
   }
