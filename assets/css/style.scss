@@ -35,6 +35,18 @@ body {
 .hidden {
   display: none;
 }
+#theme-toggle {
+  cursor: pointer;
+  transition: transform 0.5s ease; /* Rotation animation */
+}
+
+body {
+  transition: filter 0.5s ease; /* Filter animation */
+}
+
+.black-and-white {
+  filter: grayscale(100%);
+}
 
 // MIXINS
 
@@ -92,15 +104,27 @@ body {
       display: block;
       text-decoration: none;
     }
+    li:last-child {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
     li:nth-child(1) a {
       width: 45.58px;
       height: 48px;
       background: url("../images/svg/logo.svg");
     }
-    li:nth-child(2) a {
-      width: 33.46px;
-      height: 38px;
-      background: url("../images/icons/contact.svg");
+    li:nth-child(2) a:first-child {
+      width: 46px;
+      height: 48px;
+      background: url("../images/icons/home-icon.svg");
+      background-size: contain;
+    }
+    li:nth-child(2) a:last-child {
+      width: 32px;
+      height: 48px;
+      background: url(../images/icons/contact.svg) center no-repeat;
+      background-size: contain;
     }
   }
 }
