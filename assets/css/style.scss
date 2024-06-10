@@ -126,6 +126,15 @@ body {
       background: url(../images/icons/contact.svg) center no-repeat;
       background-size: contain;
     }
+    li:nth-child(2) a:first-child.active {
+      background: url("../images/icons/home-icon2.svg") no-repeat;
+      background-size: contain;
+      background-position: top;
+    }
+    li:nth-child(2) a:last-child.active {
+      background: url("../images/icons/contact2.svg") center no-repeat;
+      background-size: contain;
+    }
   }
 }
 .header {

@@ -26,4 +26,16 @@ document.addEventListener('DOMContentLoaded', function () {
             themeToggle.style.transform = 'rotate(180deg)';
         }
     });
+
+    // Defining the current URL-address and menu navigation links
+    const currentPath = window.location.pathname;
+    const homeLink = document.querySelector('a[href="index.html"]');
+    const contactLink = document.querySelector('a[href="../pages/contact.html"]');
+
+    // Setting the active class on page onload
+    if (currentPath.endsWith('index.html')) {
+        homeLink.classList.add('active');
+    } else if (currentPath.endsWith('contact.html')) {
+        contactLink.classList.add('active');
+    }
 });
