@@ -38,4 +38,11 @@ document.addEventListener('DOMContentLoaded', function () {
     } else if (currentPath.endsWith('contact.html')) {
         contactLink.classList.add('active');
     }
+
+    // Animation in the hero section for devices with screen resolution 991px and higher
+    if (window.innerWidth >= 991) {
+        const heroSection = document.querySelector('.hero');
+        heroSection.style.opacity = '1';
+        heroSection.style.transform = 'translateY(0)';
+    }
 });
