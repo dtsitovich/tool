@@ -591,6 +591,34 @@
     width: 320px;
   }
 }
+@media screen and (min-width: 991px) {
+  .hero {
+    opacity: 0; /* The initial state of the section is invisible */
+    transform: translateY(50px); /* The initial state of the section is shifted down */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for smooth animation */
+  }
+  .hero h1 {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 0.5s; /* Animation delay by 0.5 seconds */
+  }
+  .hero p {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 1s; /* Animation delay by 1 second */
+  }
+  .hero a {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 1.5s; /* Animation delay by 1.5 seconds */
+  }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
 @media screen and (min-width: 820px) and (max-width: 990px) {
   .header {
     height: auto;
@@ -1455,6 +1483,34 @@ body {
   }
   .footer .footer-bottom li {
     width: 320px;
+  }
+}
+@media screen and (min-width: 991px) {
+  .hero {
+    opacity: 0; /* The initial state of the section is invisible */
+    transform: translateY(50px); /* The initial state of the section is shifted down */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transition for smooth animation */
+  }
+  .hero h1 {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 0.5s; /* Animation delay by 0.5 seconds */
+  }
+  .hero p {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 1s; /* Animation delay by 1 second */
+  }
+  .hero a {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards 1.5s; /* Animation delay by 1.5 seconds */
+  }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 @media screen and (min-width: 820px) and (max-width: 990px) {
