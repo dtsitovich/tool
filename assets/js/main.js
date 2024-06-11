@@ -45,4 +45,30 @@ document.addEventListener('DOMContentLoaded', function () {
         heroSection.style.opacity = '1';
         heroSection.style.transform = 'translateY(0)';
     }
+
+    // Animation in the .services section
+    const servicesSection = document.querySelector('.services');
+    let hasScrolled = false; // Scroll state tracking flag
+
+    if (window.innerWidth >= 991) {
+        window.addEventListener('scroll', function () {
+            if (!hasScrolled && servicesSection.getBoundingClientRect().top <= window.innerHeight * 0.75) {
+                servicesSection.classList.add('animate');
+                hasScrolled = true; // Set the flag value to 'true' after the first scroll
+
+                // 'animate' class removing after animation ends
+                setTimeout(() => {
+                    servicesSection.classList.remove('animate');
+
+                    // Setting opacity property value to 1 after animation ends
+                    const cardBox = servicesSection.querySelector('.card-box');
+                    cardBox.style.opacity = '1';
+
+                    const servicesHeading = document.querySelector('.services > h3');
+                    servicesHeading.style.opacity = '1';
+                }, 1000);
+            }
+        });
+    }
+
 });
