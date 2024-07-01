@@ -28,22 +28,21 @@ $white: #fff;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
 body {
   font-family: "Roboto", sans-serif;
+  transition: filter 0.5s ease; /* Filter animation */
 }
 .hidden {
-  display: none;
+  /* display: none; */
+  opacity: 0;
+}
+.visible {
+  opacity: 1;
 }
 #theme-toggle {
   cursor: pointer;
   transition: transform 0.5s ease; /* Rotation animation */
 }
-
-body {
-  transition: filter 0.5s ease; /* Filter animation */
-}
-
 .black-and-white {
   filter: grayscale(100%);
 }

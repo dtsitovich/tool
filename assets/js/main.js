@@ -45,4 +45,64 @@ document.addEventListener('DOMContentLoaded', function () {
         heroSection.style.opacity = '1';
         heroSection.style.transform = 'translateY(0)';
     }
+
+    // Animation in the .services section
+    const servicesSection = document.querySelector('.services');
+    let hasScrolled = false; // Scroll state tracking flag
+
+    if (window.innerWidth >= 991) {
+        window.addEventListener('scroll', function () {
+            if (!hasScrolled && servicesSection.getBoundingClientRect().top <= window.innerHeight * 0.75) {
+                servicesSection.classList.add('animate');
+                hasScrolled = true; // Set the flag value to 'true' after the first scroll
+
+                // 'animate' class removing after animation ends
+                setTimeout(() => {
+                    servicesSection.classList.remove('animate');
+
+                    // Setting opacity property value to 1 after animation ends
+                    const cardBox = servicesSection.querySelector('.card-box');
+                    cardBox.style.opacity = '1';
+
+                    const servicesHeading = document.querySelector('.services > h3');
+                    servicesHeading.style.opacity = '1';
+                }, 1000);
+            }
+        });
+    }
+
+    // Animation in the .projects section
+    const projectsSection = document.querySelector('.projects');
+    let hasScrolledProjects = false; // Scroll state tracking flag for .projects
+
+    if (window.innerWidth >= 991) {
+        window.addEventListener('scroll', function () {
+            if (!hasScrolledProjects && projectsSection.getBoundingClientRect().top <= window.innerHeight * 0.75) {
+                projectsSection.classList.add('animate');
+                hasScrolledProjects = true; // Set the flag value to 'true' after the first scroll
+
+                // Smooth display of each project item
+                const projectItems = projectsSection.querySelectorAll('.project-item');
+                let animationsCompleted = 0;
+
+                projectItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                        item.addEventListener('transitionend', () => {
+                            animationsCompleted++;
+                            if (animationsCompleted === projectItems.length) {
+                                projectsSection.classList.remove('animate');
+                                projectsSection.style.opacity = '1';
+                                projectsSection.style.transform = 'translateY(0)';
+
+                                projectItems.forEach((item) => {
+                                    item.classList.remove('hidden', 'visible');
+                                });
+                            }
+                        });
+                    }, index * 500); // 0.5 sec animation delay
+                });
+            }
+        });
+    }
 });
