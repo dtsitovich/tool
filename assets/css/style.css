@@ -655,6 +655,49 @@
   .services.animate .card-box .card-item:nth-child(3) {
     animation-delay: 0.6s;
   }
+  .projects {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects p {
+    opacity: 0.5;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .projects.animate p {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects.animate .project-box .project-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects.animate .project-box .project-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .projects .item-1,
+  .projects .item-2,
+  .projects .item-3 {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    border-radius: 12px;
+    transition: background-size 5.8s ease-out;
+  }
+  .projects .item-1:hover,
+  .projects .item-2:hover,
+  .projects .item-3:hover {
+    background-size: 125%;
+    cursor: pointer;
+  }
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -814,19 +857,21 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  transition: filter 0.5s ease; /* Filter animation */
 }
 
 .hidden {
-  display: none;
+  /* display: none; */
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
 }
 
 #theme-toggle {
   cursor: pointer;
   transition: transform 0.5s ease; /* Rotation animation */
-}
-
-body {
-  transition: filter 0.5s ease; /* Filter animation */
 }
 
 .black-and-white {
@@ -1595,6 +1640,49 @@ body {
   }
   .services.animate .card-box .card-item:nth-child(3) {
     animation-delay: 0.6s;
+  }
+  .projects {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects p {
+    opacity: 0.5;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .projects.animate p {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects.animate .project-box .project-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .projects.animate .project-box .project-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .projects .item-1,
+  .projects .item-2,
+  .projects .item-3 {
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    border-radius: 12px;
+    transition: background-size 5.8s ease-out;
+  }
+  .projects .item-1:hover,
+  .projects .item-2:hover,
+  .projects .item-3:hover {
+    background-size: 125%;
+    cursor: pointer;
   }
   @keyframes fadeInUp {
     from {

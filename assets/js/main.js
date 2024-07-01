@@ -71,4 +71,38 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Animation in the .projects section
+    const projectsSection = document.querySelector('.projects');
+    let hasScrolledProjects = false; // Scroll state tracking flag for .projects
+
+    if (window.innerWidth >= 991) {
+        window.addEventListener('scroll', function () {
+            if (!hasScrolledProjects && projectsSection.getBoundingClientRect().top <= window.innerHeight * 0.75) {
+                projectsSection.classList.add('animate');
+                hasScrolledProjects = true; // Set the flag value to 'true' after the first scroll
+
+                // Smooth display of each project item
+                const projectItems = projectsSection.querySelectorAll('.project-item');
+                let animationsCompleted = 0;
+
+                projectItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                        item.addEventListener('transitionend', () => {
+                            animationsCompleted++;
+                            if (animationsCompleted === projectItems.length) {
+                                projectsSection.classList.remove('animate');
+                                projectsSection.style.opacity = '1';
+                                projectsSection.style.transform = 'translateY(0)';
+
+                                projectItems.forEach((item) => {
+                                    item.classList.remove('hidden', 'visible');
+                                });
+                            }
+                        });
+                    }, index * 500); // 0.5 sec animation delay
+                });
+            }
+        });
+    }
 });
