@@ -1,108 +1,89 @@
 document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-
-    // Checking and applying the saved theme on page load
-    if (localStorage.getItem('theme') === 'black-and-white') {
-        body.classList.add('black-and-white');
-        themeToggle.style.transform = 'rotate(180deg)';
-    }
-
-    themeToggle.addEventListener('click', function (e) {
-        e.preventDefault(); // Preventing default link behavior
-
-        // Checking if <body> has applied black-and-white class
-        const isBlackAndWhite = body.classList.contains('black-and-white');
-
-        // Adding/removing the black-and-white class from <body>
-        body.classList.toggle('black-and-white');
-
-        // Saving theme state to localStorage
-        if (isBlackAndWhite) {
-            localStorage.setItem('theme', 'color');
-            themeToggle.style.transform = 'none';
-        } else {
-            localStorage.setItem('theme', 'black-and-white');
-            themeToggle.style.transform = 'rotate(180deg)';
-        }
-    });
-
-    // Defining the current URL-address and menu navigation links
     const currentPath = window.location.pathname;
     const homeLink = document.querySelector('a[href="index.html"]');
     const contactLink = document.querySelector('a[href="../pages/contact.html"]');
+    const sectionsToAnimate = [
+        { section: document.querySelector('.services'), hasScrolled: false, cardBoxSelector: '.card-box', headingSelector: '.services > h3', delay: 1000 },
+        { section: document.querySelector('.projects'), hasScrolled: false, itemSelector: '.project-item', delay: 500 }
+    ];
 
-    // Setting the active class on page onload
+    // Apply saved theme on page load
+    if (localStorage.getItem('theme') === 'black-and-white') {
+        applyTheme('black-and-white');
+    }
+
+    // Theme toggle click event
+    themeToggle.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default link behavior
+        const newTheme = body.classList.contains('black-and-white') ? 'color' : 'black-and-white';
+        applyTheme(newTheme);
+    });
+
+    // Function to apply theme
+    function applyTheme(theme) {
+        body.classList.toggle('black-and-white', theme === 'black-and-white');
+        localStorage.setItem('theme', theme);
+        themeToggle.style.transform = theme === 'black-and-white' ? 'rotate(180deg)' : 'none';
+    }
+
+    // Set active class based on current URL
     if (currentPath.endsWith('index.html')) {
         homeLink.classList.add('active');
     } else if (currentPath.endsWith('contact.html')) {
         contactLink.classList.add('active');
     }
 
-    // Animation in the hero section for devices with screen resolution 991px and higher
+    // Hero section animation for devices with screen resolution 991px and higher
     if (window.innerWidth >= 991) {
         const heroSection = document.querySelector('.hero');
         heroSection.style.opacity = '1';
         heroSection.style.transform = 'translateY(0)';
     }
 
-    // Animation in the .services section
-    const servicesSection = document.querySelector('.services');
-    let hasScrolled = false; // Scroll state tracking flag
+    // Function to animate sections on scroll
+    function animateSectionsOnScroll() {
+        if (window.innerWidth >= 991) {
+            sectionsToAnimate.forEach(({ section, hasScrolled, cardBoxSelector, headingSelector, itemSelector, delay }) => {
+                window.addEventListener('scroll', function scrollHandler() {
+                    if (!hasScrolled && section.getBoundingClientRect().top <= window.innerHeight * 0.75) {
+                        section.classList.add('animate');
+                        hasScrolled = true;
 
-    if (window.innerWidth >= 991) {
-        window.addEventListener('scroll', function () {
-            if (!hasScrolled && servicesSection.getBoundingClientRect().top <= window.innerHeight * 0.75) {
-                servicesSection.classList.add('animate');
-                hasScrolled = true; // Set the flag value to 'true' after the first scroll
+                        if (cardBoxSelector && headingSelector) {
+                            setTimeout(() => {
+                                section.classList.remove('animate');
+                                const cardBox = section.querySelector(cardBoxSelector);
+                                const heading = section.querySelector(headingSelector);
+                                if (cardBox) cardBox.style.opacity = '1';
+                                if (heading) heading.style.opacity = '1';
+                            }, delay);
+                        }
 
-                // 'animate' class removing after animation ends
-                setTimeout(() => {
-                    servicesSection.classList.remove('animate');
+                        if (itemSelector) {
+                            const items = section.querySelectorAll(itemSelector);
+                            items.forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.classList.add('visible');
+                                    item.addEventListener('transitionend', function transitionEndHandler() {
+                                        item.classList.remove('hidden', 'visible');
+                                        section.classList.remove('animate');
+                                        section.style.opacity = '1';
+                                        section.style.transform = 'translateY(0)';
+                                        item.removeEventListener('transitionend', transitionEndHandler);
+                                    });
+                                }, index * delay);
+                            });
+                        }
 
-                    // Setting opacity property value to 1 after animation ends
-                    const cardBox = servicesSection.querySelector('.card-box');
-                    cardBox.style.opacity = '1';
-
-                    const servicesHeading = document.querySelector('.services > h3');
-                    servicesHeading.style.opacity = '1';
-                }, 1000);
-            }
-        });
-    }
-
-    // Animation in the .projects section
-    const projectsSection = document.querySelector('.projects');
-    let hasScrolledProjects = false; // Scroll state tracking flag for .projects
-
-    if (window.innerWidth >= 991) {
-        window.addEventListener('scroll', function () {
-            if (!hasScrolledProjects && projectsSection.getBoundingClientRect().top <= window.innerHeight * 0.75) {
-                projectsSection.classList.add('animate');
-                hasScrolledProjects = true; // Set the flag value to 'true' after the first scroll
-
-                // Smooth display of each project item
-                const projectItems = projectsSection.querySelectorAll('.project-item');
-                let animationsCompleted = 0;
-
-                projectItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.classList.add('visible');
-                        item.addEventListener('transitionend', () => {
-                            animationsCompleted++;
-                            if (animationsCompleted === projectItems.length) {
-                                projectsSection.classList.remove('animate');
-                                projectsSection.style.opacity = '1';
-                                projectsSection.style.transform = 'translateY(0)';
-
-                                projectItems.forEach((item) => {
-                                    item.classList.remove('hidden', 'visible');
-                                });
-                            }
-                        });
-                    }, index * 500); // 0.5 sec animation delay
+                        window.removeEventListener('scroll', scrollHandler);
+                    }
                 });
-            }
-        });
+            });
+        }
     }
+
+    // Initial call to animate sections
+    animateSectionsOnScroll();
 });
