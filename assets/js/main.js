@@ -63,26 +63,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         if (itemSelector) {
                             const items = section.querySelectorAll(itemSelector);
+                            let animationsCompleted = 0;
+
                             items.forEach((item, index) => {
                                 setTimeout(() => {
                                     item.classList.add('visible');
+                                    item.classList.remove('hidden');
+
                                     item.addEventListener('transitionend', function transitionEndHandler() {
-                                        item.classList.remove('hidden', 'visible');
-                                        section.classList.remove('animate');
-                                        section.style.opacity = '1';
-                                        section.style.transform = 'translateY(0)';
+                                        animationsCompleted++;
+                                        if (animationsCompleted === items.length) {
+                                            section.classList.remove('animate');
+                                            section.style.opacity = '1';
+                                            section.style.transform = 'translateY(0)';
+
+                                            // Remove .hidden and .visible classes after the animation completes
+                                            items.forEach(item => {
+                                                item.classList.remove('hidden', 'visible');
+                                            });
+                                        }
+
+                                        // Remove the transitionend event listener after it has executed
                                         item.removeEventListener('transitionend', transitionEndHandler);
                                     });
                                 }, index * delay);
                             });
                         }
 
+                        // Remove the scroll event listener after it has been triggered
                         window.removeEventListener('scroll', scrollHandler);
                     }
                 });
             });
+        } else {
+            // Remove the .hidden class for devices with screen resolution below 991px
+            sectionsToAnimate.forEach(({ itemSelector }) => {
+                if (itemSelector) {
+                    const items = document.querySelectorAll(itemSelector);
+                    items.forEach(item => {
+                        item.classList.remove('hidden');
+                    });
+                }
+            });
         }
     }
+
 
     // Initial call to animate sections
     animateSectionsOnScroll();
